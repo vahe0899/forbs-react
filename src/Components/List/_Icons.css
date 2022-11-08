@@ -1,0 +1,54 @@
+.icon-add {
+    background: url("../assets/add.svg");
+    height: 15px;
+    width: 15px;
+}
+
+.icon-write {
+    background: url("../assets/push.svg");
+    height: 15px;
+    width: 15px;
+}
+
+.icon-delete {
+    background: url("../assets/del.svg");
+    height: 15px;
+    width: 15px;
+    background-repeat: no-repeat;
+}
+
+.icon-profile {
+    background: url("../assets/auth_white.svg");
+    height: 20px;
+    width: 20px;
+}
+
+.icon-edit {
+    background: url("../assets/edit_white.svg");
+    height: 20px;
+    width: 20px;
+}
+
+.icon-list {
+    background: url("../assets/list_white.svg");
+    height: 20px;
+    width: 15px;
+}
+
+.icon-search {
+    background: url("../assets/search.svg");
+    height: 23px;
+    width: 23px;
+}
+
+.icon-filter {
+    background: url("../assets/filter.svg");
+    height: 23px;
+    width: 23px;
+}
+
+.icon-edit-black {
+    background: url("../assets/edit_black.svg");
+    height: 15px;
+    width: 15px;
+}

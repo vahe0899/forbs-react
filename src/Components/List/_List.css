@@ -1,0 +1,97 @@
+html, body {
+    background-color: #f0f0f0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navpanel {
+    position: relative;
+    left: 0px;
+    border: none;
+}
+
+.list-page {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.top {
+   display: flex;
+    height: 124px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.list-table {
+    margin-top: 10px;
+}
+
+.list-table-body {
+    margin-top: 40px;
+}
+
+.list-table-head {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.ruble-head-table-cell, .dollar-head-table-cell, .name-head-table-cell {
+    color: #a3a2a2;
+    font-weight: bold;
+}
+
+.name-head-table-cell {
+    position: absolute;
+    left: 14%;
+}   
+
+.ruble-head-table-cell {
+    position: absolute;
+    left: 44.5%;
+}
+
+.dollar-head-table-cell {
+    position: absolute;
+    left: 79.5%;
+}
+
+.list-table-row {
+    display: flex;
+    margin-top: 20px;
+    flex-direction: row;
+    position: relative;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 4px 3px 9px 0px rgb(0 0 0 / 16%);}
+
+h2 {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    color: #48a5ea;
+}
+
+.name-list-table-cell {
+    position: absolute;
+    left: 14%;
+}
+
+.number-list-table-cell {
+    margin-left: 15px;
+}
+
+.ruble-list-table-cell {
+    position: absolute;
+    left: 44.5%;
+}
+
+.dollar-list-table-cell {
+    position: absolute;
+    left: 79.5%;
+}

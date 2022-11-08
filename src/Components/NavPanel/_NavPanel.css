@@ -1,0 +1,47 @@
+.nav-panel {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    border-radius: 50px;
+    background-color: #48a5ea;
+    justify-content: space-evenly;
+    align-items: center;
+    top: 7px;
+    z-index: 5;
+    left: calc(50% - 96px)
+}
+
+.nav-btn:hover{
+    box-shadow: inset 0 0 0 45px #ffffff;
+}
+
+.nav-btn:hover > .icon-edit{
+    background: url("../assets/edit_blue.svg");
+}
+
+.nav-btn:hover > .icon-list{
+    background: url("../assets/list_blue.svg");
+}
+
+.nav-btn:hover > .icon-profile{
+    background: url("../assets/auth_blue.svg");
+}
+
+.nav-btn:active{
+    box-shadow: inset 0 0 0 45px #a0a0a0;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    width: 36px;
+    height: 32px;
+    padding: 14px;
+    cursor: pointer;
+    border-radius: 50px;
+    border: none;
+    background-color: #ffffff00;
+    transition: ease-in-out 300ms;
+}

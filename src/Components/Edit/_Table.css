@@ -1,0 +1,77 @@
+.btn-right-delete, .btn-right-edit {
+    border-bottom: 2px solid #999999;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    /* transition: 0.4s ease; */
+    position: absolute;
+}
+
+.btn-right-delete {
+    right: 0px;
+}
+
+.btn-right-edit {
+    right: 35px;
+}
+
+.btn-right-delete:hover {
+    background: #f30707;
+}
+
+.btn-right-delete:active {
+    background: #940606;
+}
+
+.btn-right-edit:hover {
+    background: #13b70a;
+}
+
+.btn-right-edit:active {
+    background: #0f8209;
+}
+
+.div-table{
+	display: flex;
+    flex-direction: column;
+	width: 90%;
+    margin-top: 100px;
+}
+
+.div-table-row, .div-table-head {
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    border-bottom: 1px solid #999999;
+    position: relative;
+}
+
+.name-div-table-cell {
+	display: table-cell;
+	padding: 15px 5px;
+    width: 40%; 
+    color: rgb(176,174,174);
+}
+
+.money-div-table-cell {
+	display: table-cell;
+	padding: 15px 5px;
+    width: 25%; 
+    color: rgb(176,174,174);
+}
+
+.div-table-cell {
+	display: flex;
+	padding: 15px 5px;
+}
+
+.div-table-body {
+	display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,68 @@
+body, html { 
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-container {
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.login-window {
+    height: 350px;
+    width: 350px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.158);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn-login {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    width: 82px;
+    height: 30px;
+    background: #48a5ea;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0px 3px 4px rgb(0 0 0 / 48%);
+    border: none;
+}
+
+.btn-login:active {
+    background: #275b83;
+}
+
+.login-title {
+    color: #48a5ea;
+}
+
+.bottom-label {
+    font-size: 10px;
+    position: absolute;
+    bottom: 7px;
+    right: -1px;
+}
+
+.top-label {
+    font-size: 14px;
+    color: rgb(200, 200, 200)
+}
+
+.top-label-red {
+    font-size: 14px;
+    color: red;
+}
