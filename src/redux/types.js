@@ -11,3 +11,5 @@ export const CLOSE_MODAL = 'CLOSE_MODAL';
 export const INPUT_PASSWORD = 'INPUT_PASSWORD';
 export const INPUT_LOGIN = 'INPUT_LOGIN';
 export const CHECK_VALIDATION = 'CHECK_VALIDATION';
+export const REGISTRATION = 'REGISTRATION';
+export const USER_CHECK = 'USER_CHECK';

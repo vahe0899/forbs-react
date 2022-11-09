@@ -69,10 +69,6 @@ return (
                 <label className='label'>Сумма денег в рублях</label>
                 <input type="number" value={moneyText} onChange={ moneyChangeHandler }></input>
             </div>
-            <div className="text">
-                <label className='label'>Марка автомобиля</label>
-                <input type="text"></input>
-            </div>
         </div>
         <div className="panel">
             <div className="btn-left" onClick={ addRowHandler }>

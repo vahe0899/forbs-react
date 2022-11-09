@@ -38,11 +38,11 @@ return (
     <div className="list-table-body">
       { listItems.map((item) => {
       return (
-      <div className="list-table-row" id="1" key={item.id}>
+      <div className="list-table-row" key={item.id}>
         <div className="number-list-table-cell">
           <h2>{ listItems.indexOf(item) + 1 }</h2>
         </div>
-        <div className="name-list-table-cell">{item.firstName}</div>
+        <div className="name-list-table-cell">{item.firstName + ' ' + item.lastName}</div>
         <div className="ruble-list-table-cell">{item.money}</div>
         <div className="dollar-list-table-cell">{item.money}</div>
       </div>
