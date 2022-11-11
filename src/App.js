@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux'
 
 function App(props) {
 
-  const invalidUser = useSelector(state => {
-    return state.loginReducer.invalidUser
+  const validUser = useSelector(state => {
+    return state.loginReducer.validUser
   });
 
   return (
@@ -16,8 +16,8 @@ function App(props) {
         <NavPanel />
         <Routes>
         <Route path='/profile' element={<LoginWindow />} />
-        <Route path='/edit' element={invalidUser && <Edit />}/>
-        <Route path='/list' element={invalidUser && <List />}/>
+        <Route path='/edit' element={validUser && <Edit />}/>
+        <Route path='/list' element={validUser && <List />}/>
         </Routes>      
     </BrowserRouter>
   );

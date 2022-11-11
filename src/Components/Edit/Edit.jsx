@@ -4,30 +4,30 @@ import '../Edit/_Modal.css';
 import '../Edit/_Form&buttons.css';
 import uniqid from 'uniqid';
 import { useDispatch, useSelector } from 'react-redux';
-import { inputFirstName, inputLastName, inputMoney, addRow } from '../../redux/actions';
+import { inputFirstName, inputLastName, inputMoney, addRow, listChange } from '../../redux/actions';
 import { Row } from '../Row/Row';
 import { ModalWindow } from '../ModalWindow/ModalWindow';
 
 export function Edit(props) {
 
 const listItems = useSelector(state => {
-    return state.editReducer.array
+    return state.loginReducer.array
 });
 
 const firstNameText = useSelector(state => {
-    return state.editReducer.firstName
+    return state.loginReducer.firstName
 });
 
 const lastNameText = useSelector(state => {
-    return state.editReducer.lastName
+    return state.loginReducer.lastName
 });
 
 const moneyText = useSelector(state => {
-    return state.editReducer.money
+    return state.loginReducer.money
 });
 
 const modalIsOpen = useSelector(state => {
-    return state.editReducer.modalWindowCondition
+    return state.loginReducer.modalWindowCondition
 });
 
 const dispatch = useDispatch();
@@ -42,6 +42,10 @@ const lastNameChangeHandler = (event) => {
 
 const moneyChangeHandler = (event) => {
     dispatch(inputMoney(event.target.value));
+};
+
+const listStateHandler = () => {
+    dispatch(listChange(listItems));
 };
 
 const addRowHandler = () => {
@@ -75,7 +79,7 @@ return (
                 <div className="icon-add">
                 </div>
             </div>
-            <div className="btn-left">
+            <div className="btn-left" onClick={ listStateHandler }>
                 <div className="icon-write">
                 </div>
             </div>

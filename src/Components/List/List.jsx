@@ -5,7 +5,8 @@ import {connect} from 'react-redux'
 import { filterByMoney, filterByName, Search } from '../../redux/actions'
 
 function List(props) {
-const listItems = props.items;
+  
+let listItems = props.searchedArray ? props.searchedArray : props.items
 return (
 <div className="list-page">
   <div className="top">
@@ -44,7 +45,7 @@ return (
         </div>
         <div className="name-list-table-cell">{item.firstName + ' ' + item.lastName}</div>
         <div className="ruble-list-table-cell">{item.money}</div>
-        <div className="dollar-list-table-cell">{item.money}</div>
+        <div className="dollar-list-table-cell">{Math.round(item.money/props.valute)}</div>
       </div>
       )
       }
@@ -75,8 +76,10 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    items: state.filterReducer.array,
-    text: state.filterReducer.text
+    items: state.loginReducer.acceptedArray,
+    text: state.loginReducer.text,
+    valute: state.loginReducer.USD,
+    searchedArray: state.loginReducer.searchedArray,
   }
 }
 

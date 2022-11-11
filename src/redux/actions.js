@@ -1,6 +1,6 @@
 import {USER_CHECK, REGISTRATION, EDIT_ROW, DELETE_ROW, ADD_ROW, 
 MONEY_FILTER, NAME_FILTER, INPUT_SEARCH,CHECK_VALIDATION, INPUT_FIRSTNAME, 
-INPUT_LASTNAME, INPUT_MONEY, CLOSE_MODAL, INPUT_LOGIN, INPUT_PASSWORD } from "./types";
+INPUT_LASTNAME, INPUT_MONEY, CLOSE_MODAL, INPUT_LOGIN, INPUT_PASSWORD, LIST_STATE_CHANGE } from "./types";
 
 export function filterByMoney() {
     return {
@@ -108,5 +108,12 @@ export function registration() {
 export function userCheck() {
     return {
         type: USER_CHECK
+    }
+};
+
+export function listChange(data) {
+    return {
+        type: LIST_STATE_CHANGE,
+        data: data
     }
 };
