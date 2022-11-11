@@ -1,10 +1,7 @@
+import axios from 'axios';
 import { LIST_STATE_CHANGE, ADD_ROW, DELETE_ROW, EDIT_ROW, INPUT_FIRSTNAME, INPUT_LASTNAME, 
     INPUT_MONEY, CLOSE_MODAL, NAME_FILTER, MONEY_FILTER, INPUT_SEARCH, INPUT_LOGIN, 
     INPUT_PASSWORD, CHECK_VALIDATION, REGISTRATION, USER_CHECK } from "./types";
-import axios from 'axios';
-
-let moneySortCondition = '';
-let nameSortCondition = '';
 
 const initialState = {
     array: [{
@@ -63,8 +60,8 @@ const initialState = {
     acceptedArray: [],
     modalWindowCondition: false,
     rowEditCondition: false,
-    nameSortCondition,
-    moneySortCondition,
+    nameSortCondition: '',
+    moneySortCondition: '',
     firstName: '',
     lastName: '',
     money: '',
@@ -100,14 +97,14 @@ export const loginReducer = (state = initialState, action) => {
 
         case INPUT_PASSWORD:
             return {
-            ...state,
-            password: action.text
+                ...state,
+                password: action.text
             };
 
         case INPUT_LOGIN:
             return {
-            ...state,
-            login: action.text
+                ...state,
+                login: action.text
             };
 
         case CHECK_VALIDATION:
@@ -147,7 +144,7 @@ export const loginReducer = (state = initialState, action) => {
             };
 
             if (state.login !== '' && state.password === '') {
-                 return {
+                return {
                     ...state,
                     style: {
                         ...state.style,
@@ -175,18 +172,18 @@ export const loginReducer = (state = initialState, action) => {
             }
 
             return {
-            ...state,
-            style: {
-                ...state.style,
-                password: 'top-label',
-                login: 'top-label',
-                bottomBorderLogin: '',
-                bottomBorderPassword: ''
-            },
-            emptyLogin: false,
-            emptyPassword: false,
-            shortLogin: false,
-            shortPassword: false,
+                ...state,
+                style: {
+                    ...state.style,
+                    password: 'top-label',
+                    login: 'top-label',
+                    bottomBorderLogin: '',
+                    bottomBorderPassword: ''
+                },
+                emptyLogin: false,
+                emptyPassword: false,
+                shortLogin: false,
+                shortPassword: false,
             };
 
         case REGISTRATION:
@@ -226,7 +223,7 @@ export const loginReducer = (state = initialState, action) => {
             };
 
             if (state.login.length >= 3 && state.password.length <= 3) {
-                 return {
+                return {
                     ...state,
                     style: {
                         ...state.style,
@@ -244,21 +241,21 @@ export const loginReducer = (state = initialState, action) => {
 
             alert("Пользователь успешно зарегистрирован!")
             return {
-            ...state,
-            users: [...state.users, {login: state.login, password: state.password}],
-            style: {
-                ...state.style,
-                password: 'top-label',
-                login: 'top-label',
-                bottomBorderLogin: '',
-                bottomBorderPassword: ''
-            },
-            login: '',
-            password: '',
-            shortLogin: false,
-            shortPassword: false,
-            emptyLogin: false,
-            emptyPassword: false
+                ...state,
+                users: [...state.users, {login: state.login, password: state.password}],
+                style: {
+                    ...state.style,
+                    password: 'top-label',
+                    login: 'top-label',
+                    bottomBorderLogin: '',
+                    bottomBorderPassword: ''
+                },
+                login: '',
+                password: '',
+                shortLogin: false,
+                shortPassword: false,
+                emptyLogin: false,
+                emptyPassword: false
             };
 
 
@@ -286,21 +283,21 @@ export const loginReducer = (state = initialState, action) => {
             state.acceptedArray.forEach(element => nameArray.push(element));
             return {
                 ...state,
+                nameSortCondition: 'sorted',
                 acceptedArray: nameArray.sort((prev, next) => {
-                        if ( prev.firstName < next.firstName ) {return -1};
-                        if ( prev.firstName < next.firstName ) {return 1};
-                       }),
-                nameSortCondition: 'sorted'
+                    if ( prev.firstName < next.firstName ) {return -1};
+                    if ( prev.firstName < next.firstName ) {return 1};
+                }),
             };
         } else if (state.nameSortCondition === 'sorted') {
             state.acceptedArray.forEach(element => nameArray.push(element));
             return {
                 ...state,
+                nameSortCondition: 'sorted-reverse',
                 acceptedArray: nameArray.sort((prev, next) => {
-                        if ( prev.firstName > next.firstName ) {return -1};
-                        if ( prev.firstName > next.firstName ) {return 1};
-                       }),
-                nameSortCondition: 'sorted-reverse'
+                    if ( prev.firstName > next.firstName ) {return -1};
+                    if ( prev.firstName > next.firstName ) {return 1};
+                }),
             };
         }
 
@@ -313,33 +310,33 @@ export const loginReducer = (state = initialState, action) => {
             }});
 
             return {
-            ...state,
-            text: action.text,
-            searchedArray: searchArray
+                ...state,
+                text: action.text,
+                searchedArray: searchArray
             }
 
         case INPUT_FIRSTNAME:
             return {
-            ...state,
-            firstName: action.firstName
+                ...state,
+                firstName: action.firstName
             };
 
         case INPUT_LASTNAME:
             return {
-            ...state,
-            lastName: action.lastName
+                ...state,
+                lastName: action.lastName
             };
 
         case INPUT_MONEY:
             return {
-            ...state,
-            money: action.money
+                ...state,
+                money: action.money
             };
 
         case CLOSE_MODAL:
             return {
-            ...state,
-            modalWindowCondition: false,
+                ...state,
+                modalWindowCondition: false,
             };
 
         case ADD_ROW:
@@ -350,25 +347,26 @@ export const loginReducer = (state = initialState, action) => {
                 }
             } else if (state.rowEditCondition == false) {
                 return {
-                ...state,
-                array: [...state.array, action.data],
-                firstName: '',
-                lastName: '',
-                money: '',
-            }} else if (state.rowEditCondition == true) {
+                    ...state,
+                    array: [...state.array, action.data],
+                    firstName: '',
+                    lastName: '',
+                    money: '',
+                }    
+            } else if (state.rowEditCondition == true) {
                 const itemIndex = state.array.findIndex(element => element.id === state.editingRowId);
                 const nextArray = [
-                ...state.array.slice(0, itemIndex),
-                action.data,
-                ...state.array.slice(itemIndex + 1)
+                    ...state.array.slice(0, itemIndex),
+                    action.data,
+                    ...state.array.slice(itemIndex + 1)
                 ];
                 return {
-                ...state,
-                array: nextArray,
-                rowEditCondition: false,
-                firstName: '',
-                lastName: '',
-                money: '',
+                    ...state,
+                    array: nextArray,
+                    rowEditCondition: false,
+                    firstName: '',
+                    lastName: '',
+                    money: '',
                 }
             };
             
@@ -380,8 +378,8 @@ export const loginReducer = (state = initialState, action) => {
             }
             const itemIndex = state.array.findIndex(element => element.id === action.id);
             const nextArray = [
-            ...state.array.slice(0, itemIndex),
-            ...state.array.slice(itemIndex + 1)
+                ...state.array.slice(0, itemIndex),
+                ...state.array.slice(itemIndex + 1)
             ];
 
             return {
@@ -391,12 +389,12 @@ export const loginReducer = (state = initialState, action) => {
 
             case EDIT_ROW:
             return {
-            ...state,
-            firstName: action.data.firstName,
-            lastName: action.data.lastName,
-            money: action.data.money,
-            rowEditCondition: true,
-            editingRowId: action.data.id
+                ...state,
+                firstName: action.data.firstName,
+                lastName: action.data.lastName,
+                money: action.data.money,
+                rowEditCondition: true,
+                editingRowId: action.data.id
             };
 
         case LIST_STATE_CHANGE:

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteRow, editRow } from '../../redux/actions';
 
@@ -14,15 +13,15 @@ export function Row(props) {
     const dispatch = useDispatch();
 
     const valute = useSelector(state => {
-    return state.loginReducer.USD
+        return state.loginReducer.USD
     });
 
     const deleteHandler = () => {
-    dispatch(deleteRow(props.data.id))
+        dispatch(deleteRow(props.data.id))
     };
 
     const editHandler = () => {
-    dispatch(editRow(props.data.id, props.data.firstName, props.data.lastName, props.data.money))
+        dispatch(editRow(props.data.id, props.data.firstName, props.data.lastName, props.data.money))
     };
 
     return (
