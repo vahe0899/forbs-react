@@ -26,4 +26,5 @@ body{
     min-height: 100vh;
     justify-content: space-between;
     position: relative;
+    background-color: rgb(255, 255, 255);
 }
